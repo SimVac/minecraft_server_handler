@@ -13,10 +13,10 @@ class App(customtkinter.CTk):
         # configure window
         self.title("Minecraft Server Manager")
         self.geometry(f"{1100}x{580}")
+        self.resizable(False, False)
 
         # configure grid layout (4x4)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_columnconfigure((2, 3), weight=0)
+        self.grid_columnconfigure(1, weight=2)
         self.grid_rowconfigure((0, 1, 2), weight=1)
 
         # create sidebar
@@ -25,4 +25,4 @@ class App(customtkinter.CTk):
 
         # server list
         self.server_list = ServerList(self)
-        self.server_list.grid(row=0, column=1, rowspan=4, sticky="nsew")
+        self.server_list.grid(row=0, column=1, columnspan=2, sticky="nsew")
